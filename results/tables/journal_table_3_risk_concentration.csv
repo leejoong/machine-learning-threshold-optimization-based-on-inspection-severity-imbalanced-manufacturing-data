@@ -1,0 +1,4 @@
+﻿"Dataset","Test rows","Tightened rows","Positive rows","Tightened positive rows","Tightened row share (%)","Positive capture share (%)","Concentration ratio"
+"CNC Milling Tool Life","267","58","54","48","21.72","88.89","4.092"
+"Resistance Spot Welding","9569719","361523","296508","275567","3.78","92.94","24.6011"
+"WM811K Wafer Map","53549","49309","3692","3613","92.08","97.86","1.0628"

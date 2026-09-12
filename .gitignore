@@ -1,0 +1,27 @@
+# Local environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Raw and derived data never belong in the public repository
+*.csv
+*.parquet
+*.pkl
+*.pickle
+*.npy
+*.npz
+data/raw/
+outputs/
+!results/tables/*.csv
+
+# Local notebooks and editor files
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
