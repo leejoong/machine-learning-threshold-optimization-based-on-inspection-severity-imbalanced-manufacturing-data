@@ -14,34 +14,49 @@ The project studies three practical questions:
 3. Does the improvement remain useful when missed defects are more costly than
    false alarms?
 
-## Headline results
+## Figures from the thesis
 
-The tracked summary tables and figures are derived from the final experiment
-artifacts. They are included so the repository is useful immediately after a
-clone; raw datasets and trained model caches remain outside Git.
+This gallery contains only figures that appear in the thesis. The images were
+extracted from the submitted PDF so the public repository does not introduce a
+new visual result that was not part of the paper.
 
-![Policy workflow](assets/figures/proposed_policy_workflow.png)
+### Figure 1 — Proposed research-model procedure
 
-![F2 comparison](assets/figures/public_f2_comparison.png)
+![Figure 1 — Proposed research-model procedure](assets/figures/thesis_figure_1_proposed_workflow.jpg)
 
-![Risk concentration](assets/figures/public_risk_concentration.png)
+The method separates the data into train, validation, and test portions. The
+classifier is trained once, while the validation split selects the tightened
+threshold by maximizing F2. During testing, the current lot's inspection state
+is determined before its outcome is observed. A recent history of at least two
+rejected lots among five switches the next lot to Tightened inspection; five
+accepted lots while Tightened return the next lot to Normal inspection. This
+ordering is the paper's leakage guard.
 
-![Cost sensitivity](assets/figures/public_cost_sensitivity.png)
+### Figure 2 — Confusion Matrix
 
-The main evidence tables are available in
-[`results/tables`](results/tables), with methodological notes in
-[`docs/method.md`](docs/method.md) and
-[`docs/results_interpretation.md`](docs/results_interpretation.md).
+![Figure 2 — Confusion Matrix](assets/figures/thesis_figure_2_confusion_matrix.png)
+
+The paper evaluates each policy through TP, FP, FN, and TN. Precision measures
+the reliability of positive predictions, while Recall measures how many actual
+positive rows are found. F2 gives more weight to Recall than F1, which matches
+the paper's emphasis on avoiding missed defects; G-mean balances positive-class
+recall with negative-class specificity.
+
+The numerical evidence tables are available in
+[`results/tables`](results/tables), with the method and dataset explanations in
+[`docs/method.md`](docs/method.md),
+[`docs/results_interpretation.md`](docs/results_interpretation.md), and
+[`docs/data_sources.md`](docs/data_sources.md).
 
 ## Repository layout
 
 ```text
 src/thesis_policy/       Core metrics and online threshold policy
 experiments/             Dataset builders and full experiment runners
-scripts/                 Figure generation and utility scripts
+scripts/                 Verification utilities
 tests/                   Fast unit tests for the policy core
 results/tables/          Small, tracked summary tables
-assets/figures/          Figures for the README and paper narrative
+assets/figures/          Only the two figures appearing in the thesis
 notebooks/               Final experiment notebooks
 data/                    Instructions only; raw data is not committed
 outputs/                 Local caches/models/results; ignored by Git
@@ -69,7 +84,8 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-The lightweight install is enough for the policy tests and figure gallery.
+The lightweight install is enough for the policy tests and thesis figure
+verification.
 Install the optional model packages before running the full experiments:
 
 ```powershell
@@ -90,7 +106,7 @@ Generated caches, trained models, and large result files are written under
 
 ```powershell
 python -m pytest
-python scripts/build_figures.py
+python scripts/verify_thesis_assets.py
 ```
 
 To run a full dataset experiment after the raw data is available:
@@ -107,8 +123,10 @@ does not silently download or copy raw data.
 ## Data and citation
 
 Dataset provenance, exclusions, and the method description are documented in
-[`docs/dataset_source_citation_notes.md`](docs/dataset_source_citation_notes.md)
-and [`docs/method_algorithm_and_reproducibility.md`](docs/method_algorithm_and_reproducibility.md).
+[`docs/data_sources.md`](docs/data_sources.md) and
+[`docs/method.md`](docs/method.md). Only the three paper datasets are supported;
+raw files, model caches, and generated outputs are intentionally excluded from
+Git.
 
 This repository is a research artifact, not a production inspection system.
 Use the reported results with the stated dataset and split assumptions.

@@ -1,5 +1,10 @@
 # Method and reproducibility notes
 
+The public code follows the submitted thesis. The repository contains the
+paper's two main figures in [`assets/figures`](../assets/figures): Figure 1
+shows the train/validation/test procedure and Figure 2 defines the confusion
+matrix used by the reported metrics.
+
 The proposed method is a decision-policy layer placed after a probabilistic
 classifier. The classifier is trained once; the policy changes the decision
 threshold according to the recent inspection history.
@@ -16,6 +21,25 @@ threshold according to the recent inspection history.
 This timing prevents the current outcome from determining the current lot's
 threshold. The validation split selects `theta_tight`; the test split is used
 only for final evaluation.
+
+## How to read Figure 1
+
+Figure 1 separates model learning from policy execution. The classifier first
+produces a score for each row or lot. The policy then assigns the current lot a
+Normal or Tightened state using only prior lot history. Normal uses a threshold
+of 0.5; Tightened uses the validation-selected `theta_tight`. After the current
+lot is classified, its reject result updates the state used by the next lot.
+This sequence is important: the current lot's observed label cannot influence
+its own threshold.
+
+## How to read Figure 2
+
+Figure 2 maps actual and predicted classes to TP, FP, FN, and TN. The thesis
+uses these four counts to calculate Precision, Recall, F2, G-mean, and related
+diagnostics. In an imbalanced inspection problem, Recall is especially
+important because FN represents a missed defect. F2 therefore gives Recall
+greater weight than Precision, while G-mean checks that positive detection does
+not come at the cost of completely losing negative-class specificity.
 
 ## Datasets in this public package
 
@@ -40,7 +64,7 @@ expected-cost scenario where false negatives are ten times false positives.
 
 ```powershell
 python -m pytest
-python scripts/build_figures.py
+python scripts/verify_thesis_assets.py
 python -m experiments.run_cnc_milling_tool_life
 python -m experiments.run_rsw_gun_532s_rowlevel
 python -m experiments.run_wm811k

@@ -16,5 +16,5 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Run unit tests
         run: python -m pytest
-      - name: Rebuild tracked figure gallery
-        run: python scripts/build_figures.py
+      - name: Verify thesis figures
+        run: python scripts/verify_thesis_assets.py
