@@ -16,19 +16,45 @@ The project studies three practical questions:
 3. Does the improvement remain useful when missed defects are more costly than
    false alarms?
 
-## Thesis result visualizations
+## Original thesis figures with managerial interpretation
 
-These charts make the thesis results easier to compare at a glance. They are
-generated directly from the structured held-out test results and reproduce the
-F2 and G-mean values reported in thesis Tables 2–10; they do not add a new
-experiment. The generation script is
-[`scripts/generate_thesis_result_charts.py`](scripts/generate_thesis_result_charts.py).
+The figures below are the original result graphics from the final thesis
+experiment folder. They show how a small share of tightened inspections can
+concentrate positive rows, how inspection state changes over test lots, and
+how the proposed policy performs across models.
 
-![RSW Gun held-out test result comparison](assets/figures/thesis_result_comparison_rsw_gun.png)
+![Inspection severity and risk concentration summary](assets/figures/managerial_risk_concentration_summary.png)
 
-![WM811K held-out test result comparison](assets/figures/thesis_result_comparison_wm811k.png)
+The managerial reading is direct: RSW Gun concentrates 92.94% of positive rows
+into 3.78% of test rows (24.60x concentration), while CNC Milling Tool Life
+captures 88.89% in 21.72% of rows (4.09x). WM811K has a much higher underlying
+positive-row burden, so 92.08% of rows enter tightened inspection and the
+concentration ratio is only 1.06x. The policy therefore supports selective
+inspection effort most strongly for RSW Gun and CNC Milling Tool Life.
 
-![CNC Milling Tool Life held-out test result comparison](assets/figures/thesis_result_comparison_cnc_milling_tool_life.png)
+### RSW Gun
+
+![RSW Gun inspection-state timeline](assets/figures/rsw_gun_inspection_state_timeline.png)
+
+![RSW Gun cumulative positive-row capture curve](assets/figures/rsw_gun_cumulative_positive_capture.png)
+
+![RSW Gun proposed-policy model performance](assets/figures/rsw_gun_model_performance_proposed.png)
+
+### WM811K Wafer Map
+
+![WM811K inspection-state timeline](assets/figures/wm811k_inspection_state_timeline.png)
+
+![WM811K cumulative positive-row capture curve](assets/figures/wm811k_cumulative_positive_capture.png)
+
+![WM811K proposed-policy model performance](assets/figures/wm811k_model_performance_proposed.png)
+
+### CNC Milling Tool Life
+
+![CNC Milling Tool Life inspection-state timeline](assets/figures/cnc_milling_tool_life_inspection_state_timeline.png)
+
+![CNC Milling Tool Life cumulative positive-row capture curve](assets/figures/cnc_milling_tool_life_cumulative_positive_capture.png)
+
+![CNC Milling Tool Life proposed-policy model performance](assets/figures/cnc_milling_tool_life_model_performance_proposed.png)
 
 ## Thesis results at a glance
 
@@ -152,7 +178,7 @@ scripts/                 Verification utilities
 tests/                   Fast unit tests for the policy core
 results/tables/          Small, tracked summary tables
 results/paper_tables/    Thesis Tables 1–10 and structured result data
-assets/figures/          Only the two figures appearing in the thesis
+assets/figures/          Original thesis figures and managerial result graphics
 notebooks/               Final experiment notebooks
 data/                    Instructions only; raw data is not committed
 outputs/                 Local caches/models/results; ignored by Git

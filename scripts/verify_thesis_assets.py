@@ -14,9 +14,16 @@ PAPER_TABLES = ROOT / "results" / "paper_tables"
 EXPECTED = (
     "thesis_figure_1_proposed_workflow.jpg",
     "thesis_figure_2_confusion_matrix.png",
-    "thesis_result_comparison_rsw_gun.png",
-    "thesis_result_comparison_wm811k.png",
-    "thesis_result_comparison_cnc_milling_tool_life.png",
+    "managerial_risk_concentration_summary.png",
+    "rsw_gun_inspection_state_timeline.png",
+    "rsw_gun_cumulative_positive_capture.png",
+    "rsw_gun_model_performance_proposed.png",
+    "wm811k_inspection_state_timeline.png",
+    "wm811k_cumulative_positive_capture.png",
+    "wm811k_model_performance_proposed.png",
+    "cnc_milling_tool_life_inspection_state_timeline.png",
+    "cnc_milling_tool_life_cumulative_positive_capture.png",
+    "cnc_milling_tool_life_model_performance_proposed.png",
 )
 EXPECTED_TABLE_IMAGES = tuple(
     f"thesis_table_{index:02d}_" + suffix
