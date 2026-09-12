@@ -1,4 +1,7 @@
-# Risk-Based Threshold Optimization for Imbalanced Manufacturing Inspection
+# 불균형 제조 데이터에서 검사 엄격도 기반 머신러닝 임계치 최적화
+
+**Machine Learning Threshold Optimization Based on Inspection Severity for
+Imbalanced Manufacturing Data**
 
 Reproducible code and selected evidence for a manufacturing-quality inspection
 policy that changes inspection strictness when recent lots show elevated risk.
