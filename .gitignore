@@ -17,6 +17,7 @@ data/raw/
 outputs/
 tmp/
 !results/tables/*.csv
+!results/paper_tables/*.csv
 
 # Local notebooks and editor files
 .ipynb_checkpoints/

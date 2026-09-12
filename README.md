@@ -1,7 +1,6 @@
-# 불균형 제조 데이터에서 검사 엄격도 기반 머신러닝 임계치 최적화
+# Machine Learning Threshold Optimization Based on Inspection Severity for Imbalanced Manufacturing Data
 
-**Machine Learning Threshold Optimization Based on Inspection Severity for
-Imbalanced Manufacturing Data**
+국문 제목: 불균형 제조 데이터에서 검사 엄격도 기반 머신러닝 임계치 최적화
 
 Reproducible code and selected evidence for a manufacturing-quality inspection
 policy that changes inspection strictness when recent lots show elevated risk.
@@ -45,8 +44,20 @@ positive rows are found. F2 gives more weight to Recall than F1, which matches
 the paper's emphasis on avoiding missed defects; G-mean balances positive-class
 recall with negative-class specificity.
 
-The numerical evidence tables are available in
-[`results/tables`](results/tables), with the method and dataset explanations in
+## Thesis result tables
+
+The repository also includes the ten result tables from the thesis. Each table
+is preserved as an image, and each dataset's held-out test results are provided
+as CSV so readers can inspect or reuse the numbers directly.
+
+- [RSW Gun result tables and CSV](results/paper_tables/README.md#rsw-gun)
+- [WM811K result tables and CSV](results/paper_tables/README.md#wm811k)
+- [CNC Milling Tool Life result tables and CSV](results/paper_tables/README.md#cnc-milling-tool-life)
+
+The thesis result tables and the structured test-result data behind them are
+available in [`results/paper_tables`](results/paper_tables). The broader
+summary tables are in [`results/tables`](results/tables), with the method and
+dataset explanations in
 [`docs/method.md`](docs/method.md),
 [`docs/results_interpretation.md`](docs/results_interpretation.md), and
 [`docs/data_sources.md`](docs/data_sources.md).
@@ -59,6 +70,7 @@ experiments/             Dataset builders and full experiment runners
 scripts/                 Verification utilities
 tests/                   Fast unit tests for the policy core
 results/tables/          Small, tracked summary tables
+results/paper_tables/    Thesis Tables 1–10 and structured result data
 assets/figures/          Only the two figures appearing in the thesis
 notebooks/               Final experiment notebooks
 data/                    Instructions only; raw data is not committed

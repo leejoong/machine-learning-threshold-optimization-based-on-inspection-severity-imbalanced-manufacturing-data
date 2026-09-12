@@ -5,6 +5,10 @@ WM811K, and CNC Milling Tool Life. The repository does not redraw or extend the
 paper's results. Its visual gallery is limited to the two thesis figures that
 explain the procedure and the evaluation language.
 
+The paper's original result-table images and the corresponding held-out test
+result data are in [`results/paper_tables`](../results/paper_tables). The CSV
+files are compact summaries of model outputs, not raw observations.
+
 ## What the tables test
 
 The experiments compare the proposed state-dependent threshold policy with a
