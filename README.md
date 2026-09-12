@@ -16,12 +16,40 @@ The project studies three practical questions:
 3. Does the improvement remain useful when missed defects are more costly than
    false alarms?
 
+## Core contribution of the thesis
+
+This thesis connects machine-learning threshold adjustment with quality-
+management inspection policy. It does not introduce a new classifier or
+artificially rebalance the training data. Instead, it keeps the trained model
+and its score distribution unchanged, then applies a quality-history-based
+decision policy:
+
+- **Machine learning contribution:** a state-dependent threshold policy uses
+  the normal threshold in `Normal` inspection and an F2-selected, more
+  sensitive threshold only in `Tightened` inspection.
+- **Quality-management contribution:** the threshold change is explained by
+  lot-by-lot quality history—two or more rejected lots in the previous five
+  switch the next lot to `Tightened` inspection—so model decisions become an
+  operational quality-policy decision rather than an arbitrary score cutoff.
+- **Empirical contribution:** across RSW Gun, WM811K, and CNC Milling Tool
+  Life, the proposed policy improves or maintains the defect-sensitive
+  performance balance. The result is dataset-dependent: WM811K shows the
+  expected Precision trade-off when Recall and G-mean improve, while the
+  other datasets show broader gains or stable performance across the main
+  measures.
+
+The central managerial interpretation is therefore not that every metric must
+increase in every dataset. It is that inspection resources can be intensified
+when quality history signals risk, while the principal quality-detection
+performance is improved or preserved and the reason for the threshold change
+remains explainable to quality managers.
+
 ## Original thesis figures with managerial interpretation
 
 The figures below are the original result graphics from the final thesis
-experiment folder. They show how a small share of tightened inspections can
-concentrate positive rows, how inspection state changes over test lots, and
-how the proposed policy performs across models.
+experiment folder. They show how inspection state changes over test lots, how
+tightened inspection concentrates positive rows, and how the proposed policy
+performs across models in a form that supports managerial interpretation.
 
 ![Inspection severity and risk concentration summary](assets/figures/managerial_risk_concentration_summary.png)
 
@@ -30,7 +58,9 @@ into 3.78% of test rows (24.60x concentration), while CNC Milling Tool Life
 captures 88.89% in 21.72% of rows (4.09x). WM811K has a much higher underlying
 positive-row burden, so 92.08% of rows enter tightened inspection and the
 concentration ratio is only 1.06x. The policy therefore supports selective
-inspection effort most strongly for RSW Gun and CNC Milling Tool Life.
+inspection effort most strongly for RSW Gun and CNC Milling Tool Life, while
+WM811K illustrates when the same quality-history rule appropriately produces
+broad tightened inspection because the underlying positive-row burden is high.
 
 ### RSW Gun
 
@@ -62,7 +92,9 @@ The tables below are the proposed-policy results on the held-out test split.
 They are reproduced from the submitted thesis and rounded to three decimals
 for readability. `Threshold` is the selected decision threshold; F2 weights
 Recall more heavily than Precision, and G-mean summarizes positive-class
-recall together with negative-class specificity.
+recall together with negative-class specificity. The thesis claim is about
+improving or maintaining this defect-sensitive balance—not about increasing
+every individual metric in every dataset.
 
 ### RSW Gun
 

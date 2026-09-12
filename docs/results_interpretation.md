@@ -1,9 +1,10 @@
 # Results interpretation
 
-The tracked tables summarize the three datasets used in the thesis: RSW Gun,
-WM811K, and CNC Milling Tool Life. The repository does not redraw or extend the
-paper's results. Its visual gallery is limited to the two thesis figures that
-explain the procedure and the evaluation language.
+The tracked tables and original result graphics summarize the three datasets
+used in the thesis: RSW Gun, WM811K, and CNC Milling Tool Life. The repository
+does not redraw or extend the paper's results; it preserves the submitted
+result tables and the final experiment graphics that connect model performance
+to inspection operations.
 
 The paper's original result-table images and the corresponding held-out test
 result data are in [`results/paper_tables`](../results/paper_tables). The CSV
@@ -17,6 +18,21 @@ LightGBM, and CatBoost are evaluated under the same policy comparisons. The
 main performance table reports Precision, Recall, F1, F2, and G-mean; the other
 tables record risk concentration, bootstrap intervals, and the FN:FP = 10:1
 cost scenario.
+
+## Central contribution
+
+The thesis combines machine-learning score decisions with quality-management
+inspection severity. The classifier and training-data distribution remain
+unchanged; only the decision threshold changes after the model produces a
+score. A lot-history rule determines whether the next lot is in `Normal` or
+`Tightened` inspection, making the threshold change operationally explainable
+to a quality manager rather than an arbitrary global cutoff.
+
+The cross-dataset conclusion is deliberately dataset-aware: the proposed
+policy improves or maintains the principal defect-sensitive performance
+balance. Individual metrics can trade off. WM811K, for example, gives up some
+Precision while improving or maintaining Recall, F2, and G-mean; this is a
+quality-management sensitivity choice, not a claim that every metric rises.
 
 ## Reading the three datasets
 
