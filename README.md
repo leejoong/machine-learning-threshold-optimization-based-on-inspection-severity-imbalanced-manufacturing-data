@@ -16,6 +16,81 @@ The project studies three practical questions:
 3. Does the improvement remain useful when missed defects are more costly than
    false alarms?
 
+## Thesis results at a glance
+
+The tables below are the proposed-policy results on the held-out test split.
+They are reproduced from the submitted thesis and rounded to three decimals
+for readability. `Threshold` is the selected decision threshold; F2 weights
+Recall more heavily than Precision, and G-mean summarizes positive-class
+recall together with negative-class specificity.
+
+### RSW Gun
+
+| Model | Threshold | Precision | Recall | F2 | G-mean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| XGBoost | 0.079 | 0.325 | 0.733 | 0.586 | 0.835 |
+| LightGBM | 0.002 | 0.490 | 0.836 | 0.732 | 0.901 |
+| CatBoost | 0.003 | 0.377 | 0.959 | 0.733 | 0.954 |
+
+[Open the structured RSW Gun test results CSV](results/paper_tables/rsw_gun_test_results.csv)
+
+### WM811K Wafer Map
+
+| Model | Threshold | Precision | Recall | F2 | G-mean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| XGBoost | 0.449 | 0.279 | 0.617 | 0.496 | 0.738 |
+| LightGBM | 0.485 | 0.212 | 0.696 | 0.478 | 0.750 |
+| CatBoost | 0.440 | 0.298 | 0.587 | 0.492 | 0.726 |
+
+[Open the structured WM811K test results CSV](results/paper_tables/wm811k_test_results.csv)
+
+### CNC Milling Tool Life
+
+| Model | Threshold | Precision | Recall | F2 | G-mean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| XGBoost | 0.001 | 0.960 | 0.889 | 0.902 | 0.938 |
+| LightGBM | 0.001 | 1.000 | 0.574 | 0.628 | 0.758 |
+| CatBoost | 0.003 | 0.977 | 0.778 | 0.811 | 0.880 |
+
+[Open the structured CNC Milling Tool Life test results CSV](results/paper_tables/cnc_milling_tool_life_test_results.csv)
+
+### Representative result tables from the thesis
+
+These previews are the original result-table images extracted from the thesis
+PDF. The complete Table 1–10 set is available below without requiring readers
+to leave this landing page.
+
+![RSW Gun — Table 2](results/paper_tables/thesis_table_02_rsw_gun_05_vs_proposed.png)
+
+![WM811K — Table 5](results/paper_tables/thesis_table_05_wm811k_05_vs_proposed.png)
+
+![CNC Milling Tool Life — Table 8](results/paper_tables/thesis_table_08_cnc_milling_tool_life_05_vs_proposed.png)
+
+<details>
+<summary>Open all thesis result tables (Table 1–10)</summary>
+
+![Table 1 — Variables](results/paper_tables/thesis_table_01_variables.png)
+
+![Table 2 — RSW Gun, 0.5 vs Proposed](results/paper_tables/thesis_table_02_rsw_gun_05_vs_proposed.png)
+
+![Table 3 — RSW Gun, F2 vs Proposed](results/paper_tables/thesis_table_03_rsw_gun_f2_vs_proposed.png)
+
+![Table 4 — RSW Gun, OMMA vs Proposed](results/paper_tables/thesis_table_04_rsw_gun_omma_vs_proposed.png)
+
+![Table 5 — WM811K, 0.5 vs Proposed](results/paper_tables/thesis_table_05_wm811k_05_vs_proposed.png)
+
+![Table 6 — WM811K, F2 vs Proposed](results/paper_tables/thesis_table_06_wm811k_f2_vs_proposed.png)
+
+![Table 7 — WM811K, OMMA vs Proposed](results/paper_tables/thesis_table_07_wm811k_omma_vs_proposed.png)
+
+![Table 8 — CNC Milling Tool Life, 0.5 vs Proposed](results/paper_tables/thesis_table_08_cnc_milling_tool_life_05_vs_proposed.png)
+
+![Table 9 — CNC Milling Tool Life, F2 vs Proposed](results/paper_tables/thesis_table_09_cnc_milling_tool_life_f2_vs_proposed.png)
+
+![Table 10 — CNC Milling Tool Life, OMMA vs Proposed](results/paper_tables/thesis_table_10_cnc_milling_tool_life_omma_vs_proposed.png)
+
+</details>
+
 ## Figures from the thesis
 
 This gallery contains only figures that appear in the thesis. The images were
@@ -44,18 +119,10 @@ positive rows are found. F2 gives more weight to Recall than F1, which matches
 the paper's emphasis on avoiding missed defects; G-mean balances positive-class
 recall with negative-class specificity.
 
-## Thesis result tables
+## Full result archive and interpretation
 
-The repository also includes the ten result tables from the thesis. Each table
-is preserved as an image, and each dataset's held-out test results are provided
-as CSV so readers can inspect or reuse the numbers directly.
-
-- [RSW Gun result tables and CSV](results/paper_tables/README.md#rsw-gun)
-- [WM811K result tables and CSV](results/paper_tables/README.md#wm811k)
-- [CNC Milling Tool Life result tables and CSV](results/paper_tables/README.md#cnc-milling-tool-life)
-
-The thesis result tables and the structured test-result data behind them are
-available in [`results/paper_tables`](results/paper_tables). The broader
+The same tables, CSV schemas, and interpretation notes are also documented in
+[`results/paper_tables/README.md`](results/paper_tables/README.md). The broader
 summary tables are in [`results/tables`](results/tables), with the method and
 dataset explanations in
 [`docs/method.md`](docs/method.md),
