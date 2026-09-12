@@ -16,6 +16,20 @@ The project studies three practical questions:
 3. Does the improvement remain useful when missed defects are more costly than
    false alarms?
 
+## Thesis result visualizations
+
+These charts make the thesis results easier to compare at a glance. They are
+generated directly from the structured held-out test results and reproduce the
+F2 and G-mean values reported in thesis Tables 2–10; they do not add a new
+experiment. The generation script is
+[`scripts/generate_thesis_result_charts.py`](scripts/generate_thesis_result_charts.py).
+
+![RSW Gun held-out test result comparison](assets/figures/thesis_result_comparison_rsw_gun.png)
+
+![WM811K held-out test result comparison](assets/figures/thesis_result_comparison_wm811k.png)
+
+![CNC Milling Tool Life held-out test result comparison](assets/figures/thesis_result_comparison_cnc_milling_tool_life.png)
+
 ## Thesis results at a glance
 
 The tables below are the proposed-policy results on the held-out test split.

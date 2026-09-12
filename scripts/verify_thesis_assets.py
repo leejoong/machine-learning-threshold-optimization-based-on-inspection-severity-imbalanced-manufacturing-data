@@ -14,6 +14,9 @@ PAPER_TABLES = ROOT / "results" / "paper_tables"
 EXPECTED = (
     "thesis_figure_1_proposed_workflow.jpg",
     "thesis_figure_2_confusion_matrix.png",
+    "thesis_result_comparison_rsw_gun.png",
+    "thesis_result_comparison_wm811k.png",
+    "thesis_result_comparison_cnc_milling_tool_life.png",
 )
 EXPECTED_TABLE_IMAGES = tuple(
     f"thesis_table_{index:02d}_" + suffix
